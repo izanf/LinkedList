@@ -117,4 +117,59 @@ public:
 			cout << "A lista ainda esta vazia." << endl;
 		}
 	}
+
+	void search(double reg) {
+		Student* s = start;
+		Student* foundStudent = NULL;
+		char opt = NULL;
+
+		while (s)
+		{
+			if (s->getReg() == reg) {
+				foundStudent = s;
+				break;
+			}
+			s = s->getNext();
+		}
+
+		if (foundStudent) {
+			cout << "Aluno encontrado!" << endl << foundStudent->getReg() << " - " << foundStudent->getName() << endl;
+
+			while (opt != 'S' && opt != 'N') {
+				cout << "Alterar nota do aluno? 'S' - Sim / 'N' - Não: "; cin >> opt;
+
+				if (opt == 'S') {
+					handleGrades(foundStudent);
+				}
+				else if (opt != 'S' && opt != 'N')
+					cout << "Opção inválida! Insira uma opção válida." << endl;
+			}
+		}
+		else {
+			cout << "Aluno não encontrado." << endl;
+		}
+	}
+
+	void handleGrades(Student* student) {
+		float firstGrade;
+		float secondGrade;
+
+		cout << "Insira a nota 1: "; cin >> firstGrade;
+		cout << "Insira a nota 2: "; cin >> secondGrade;
+
+		student->setGrades(firstGrade, secondGrade);
+	}
+
+	void calcFinalGrade() {
+		Student* s = start;
+		float average = 0;
+
+		while (s)
+		{
+			average += s->getFinalGrade();
+			s = s->getNext();
+		}
+
+		cout << "A média da turma é: " << average / size() << endl;
+	}
 };

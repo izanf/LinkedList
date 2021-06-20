@@ -20,6 +20,7 @@ int main()
         cout << "2 - Inserir novo aluno." << endl;
         cout << "3 - Remover aluno." << endl;
         cout << "4 - Buscar aluno." << endl;
+        cout << "5 - Média aritmética da turma." << endl;
         cout << "6 - Listas todos os alunos." << endl;
         cout << "Selecione uma das opcoes acima: ";
         cin >> option;
@@ -38,6 +39,15 @@ int main()
             case 3:
                 cout << "Por favor, informe a matricula do aluno: "; cin >> reg;
                 list.remove(reg);
+                break;
+
+            case 4:
+                cout << "Por favor, informe a matricula do aluno: "; cin >> reg;
+                list.search(reg);
+                break;
+
+            case 5:
+                list.calcFinalGrade();
                 break;
 
             case 6:

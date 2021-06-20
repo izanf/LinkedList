@@ -43,4 +43,16 @@ public:
 	{
 		next = n;
 	}
+
+	void setGrades(float fGrade, float sGrade) {
+		firstGrade = fGrade;
+		secondGrade = sGrade;
+
+		finalGrade = (fGrade * 0.4) + (sGrade * 0.6);
+	}
+
+	float getFinalGrade()
+	{
+		return finalGrade;
+	}
 };
