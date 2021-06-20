@@ -19,6 +19,7 @@ int main()
         cout << "1 - Criar lista." << endl;
         cout << "2 - Inserir novo aluno." << endl;
         cout << "3 - Remover aluno." << endl;
+        cout << "4 - Buscar aluno." << endl;
         cout << "6 - Listas todos os alunos." << endl;
         cout << "Selecione uma das opcoes acima: ";
         cin >> option;
