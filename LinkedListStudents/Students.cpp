@@ -4,7 +4,6 @@
 using namespace std;
 
 class Students {
-	double defaultReg = 1;
 private:
 	Student* start;
 	Student* end;
@@ -33,15 +32,15 @@ public:
 			cout << "A lista não possui alunos." << endl;
 		}
 		else {
-			for (int i = 0; s; i++) {
-				cout << i << " - " << s->getName() << s->getReg() << endl;
+			for (int i = 1; s; i++) {
+				cout << i << " - " << s->getName() << " (" << s->getReg() << ")" << endl;
 				s = s->getNext();
 			}
 		}
 	}
 
-	void insertEnd(string name, int age) {
-		Student* newStudent = new Student(name, age, defaultReg);
+	void insertEnd(string name, int age, double reg) {
+		Student* newStudent = new Student(name, age, reg);
 
 		if (empty())
 		{
@@ -52,8 +51,6 @@ public:
 			end->setNext(newStudent);
 			end = newStudent;
 		}
-		
-		defaultReg++;
 	}
 
 	bool empty() {
@@ -101,6 +98,7 @@ public:
 				{
 					if (s->getReg() == reg) {
 						before->setNext(s->getNext());
+						cout << s->getName() << " foi removido." << endl;
 						free(s);
 						break;
 					}
